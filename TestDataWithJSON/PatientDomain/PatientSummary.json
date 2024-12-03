@@ -1,0 +1,125 @@
+{
+  "loginDetails": [
+    {
+      "username": "prerelease.auto",
+      "password": "Manoj@2023"
+    },
+    {
+      "username": "manoj.auto",
+      "password": "Manoj@2023"
+    }
+  ],
+  "PatientDetails": [
+    {
+      "pat_hospital_ref": "hosp2305Id006",
+      "pat_title": "B/O",
+      "pat_firstname": "LinuxR",
+      "pat_surname": "Riomedtest",
+      "pat_sex": "M",
+      "pat_dob": "05/11/2023",
+      "pat_marital_status": "Single",
+      "pat_ethnicity_text": "Indian",
+      "pat_occupation": "Trainer",
+      "pat_notes": "Added for Testing",
+      "pat_type": "Regular",
+      "pat_maiden_name": "Pune",
+      "pat_blood_group": "B+",
+      "pat_religion": "Hindu",
+      "pat_middlename": "Martin",
+      "pat_registered_disabled_yes": "No",
+      "pat_registered_disabled": 0,
+      "pat_currently_pregnant_yes": "No",
+      "pat_currently_pregnant": 0,
+      "pat_language": "English",
+      "pat_temp_address_start": "01-04-2023",
+      "pat_country_of_birth": "India",
+      "pat_gender_at_birth": "M",
+      "pat_nationality": "Indian",
+      "pat_prisoner_yes": "No",
+      "pat_county_of_birth": "Maharashtra",
+      "pat_town_of_birth": "Pune",
+      "pat_sexual_orientation_eli_text": "Heterosexuality",
+      "pat_disability_note": "For Testing"
+    }
+  ],
+  "MedicationCategory": [],
+  "AddMedication": [
+    {
+      "pacr_category": "Medication",
+      "pacr_que_name": "Aspirin 25mg capsules",
+      "medi_dose": "2",
+      "medi_frequency": "12 Hours",
+      "medi_method": "Oral",
+      "medi_route": "Oral",
+      "medi_duration": "2",
+      "meded_value": "Left",
+      "medi_start_date": "16/04/2024",
+      "medi_stop_date": "18/04/2024",
+      "pacr_status": "current",
+      "medi_prescribed_by": "GP",
+      "pcl_location_name": "Cardio Location",
+      "medi_notes": "Added notes for testing",
+      "medi_stopped_reason_eli_text": "Dose completed",
+      "mse_text": "Drowsiness",
+      "paprd_endorsement": "Yes",
+      "paprd_cost": "10",
+      "meded_value_Price_check_quantity": "2",
+      "meded_value_Administrator": "Administrator",
+      "meded_value_PGD": "PGD",
+      "meded_value_MaxReffills": 5,
+      "meded_value_Unit": "Tab",
+      "meded_value_Quantity": "3",
+      "meded_value_Adherent": "Adherent"
+    }
+  ],
+  "EditMedication": [
+    {
+      "pacr_category": "Medication",
+      "pacr_que_name": "Metformin 500mg tablets",
+      "medi_dose": "2",
+      "medi_frequency": "24 Hours",
+      "medi_method": "Oral",
+      "medi_route": "Oral",
+      "medi_duration": "2",
+      "medi_start_date": "17/04/2024",
+      "medi_stop_date": "19/04/2024",
+      "medi_status": "Prescribed",
+      "medi_prescribed_by": "Hospital consultant",
+      "medi_notes": "Updated notes for testing"
+    }
+  ],
+  "MedicationEDS": [],
+  "AddExamination": [
+    {
+      "pacr_category": "Examination",
+      "pacr_que_name": "Dry eye",
+      "pacr_que_name_recommendation": "Rectoplasty",
+      "exam_outcome": "Normal",
+      "pacr_clinic_date": 45407,
+      "exam_notes": "Added for Notes",
+      "eli_text": "Exm subsection",
+      "pacrd_subcategory_eli_code": "EX1008"
+    }
+  ],
+  "EditExamination": [
+    {
+      "pacr_category": "Examination",
+      "pacr_que_name": "Dry eye",
+      "pacr_que_name_recommendation": "Rectoplasty",
+      "exam_outcome": "Abnormal",
+      "examed_value": 45407,
+      "exam_notes": "Edited for Notes"
+    }
+  ],
+  "DeleteExamination": [
+    {
+      "pacr_delete_reason": "Delete for testing"
+    }
+  ],
+  "AddRecommendations": [
+    {
+      "pacr_category": "Recommendations",
+      "pacr_que_name": "Rectoplasty"
+    }
+  ]
+}

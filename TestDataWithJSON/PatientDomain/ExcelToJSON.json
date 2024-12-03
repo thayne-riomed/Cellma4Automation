@@ -1,0 +1,65 @@
+{
+  "LoginDetails": [
+    {
+      "username": "prerelease.auto",
+      "password": "Manoj@2023"
+    },
+    {
+      "username": "manoj.auto",
+      "password": "Manoj@2023"
+    }
+  ],
+  "SearchPatient": [
+    {
+      "pat_title": "B/O",
+      "pat_firstname": "Tomato",
+      "pat_surname": "Jones",
+      "pat_sex": "M",
+      "patdob": "03/03/2024",
+      "pat_middlename": "Martin",
+      "pat_marital_status": "Single",
+      "pat_mobile": 9800652518,
+      "pat_hospital_ref": "AutoHosp22",
+      "pat_country": "India",
+      "at_ethnicity_text": "Indian",
+      "pat_occupation": "Trainer",
+      "pat_type": "Regular",
+      "pat_blood_group": "B+",
+      "pat_religion": "Hindu",
+      "pat_email": "Tomato.Jones@gmail.com"
+    }
+  ],
+  "AddNewPatient": [
+    {
+      "pat_firstname": "Shree",
+      "pat_lastname": "Vyavahare",
+      "pat_sex": "M",
+      "pat_dob": 41782
+    }
+  ],
+  "AddAddress": [
+    {
+      "add_address1": "Flat no 2101",
+      "add_address2": "Pune",
+      "add_address3": "Ganga Capital",
+      "add_address4": "India",
+      "add_address5": "4110 11",
+      "add_address6": "India",
+      "add_phone": 9854148754,
+      "add_iso_country_code": 93,
+      "add_icao_country_code": 542152,
+      "add_phone_1": 206991527,
+      "add_work_phone": 22547545,
+      "add_email": "Pune.India@gmail.com",
+      "add_fax": 985421547,
+      "add_notes": "Pune.Ganga Capital added for testing"
+    }
+  ],
+  "AddPIP": [
+    {
+      "pip_firstname": "Nora",
+      "pip_surname": "Patil"
+    }
+  ],
+  "AddGP": []
+}
