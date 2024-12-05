@@ -34,6 +34,7 @@ const gpdata = JSON.parse(JSON.stringify(require("../../../TestData/PatientDomai
 
 const consoleLogs = [];
 let jsonData;
+let index = 0;
 
 test.describe("Database Comparison Pending Service On Referral", () => {
   test("Extract Patient Details", async ({}) => {
@@ -88,8 +89,8 @@ test.describe("Database Comparison Pending Service On Referral", () => {
         await homepage.clickonSidebarHomeIcon() 
         //await page.pause()
         await homepage.clickOnOurPendingonReferrals()    
-        await servicereferral.enterStartDate()
-        await servicereferral.enterEndDate()
+        await servicereferral.enterStartDate(jsonData.serviceReferral[index].ref_start_date)
+        await servicereferral.enterEndDate(jsonData.serviceReferral[index].ref_end_date)
         await servicereferral.selectStatusTypeAwaitingAcceptance()    
         await servicereferral.clickOnSearchButton()
         //await homepage.clickOnMenu()

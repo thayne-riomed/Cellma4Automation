@@ -65,10 +65,10 @@ class TrackReferral
     {
         await this.txtboxEndDate.fill(EndDate)
     }
-    async selectStatus()
+    async selectStatus(status)
     {
         await this.dropdownStatus.click()
-        await this.page.getByRole('option', { name: 'Awaiting Acceptance' }).click()
+        await this.page.getByRole('option', { name: status }).click()
     }
     async clickOnSearchButton()
     {

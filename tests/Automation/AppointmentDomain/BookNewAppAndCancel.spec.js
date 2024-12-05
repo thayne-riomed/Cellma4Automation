@@ -311,6 +311,8 @@ test.describe("Database Comparison Book New App and Cancel", () => {
    console.log(sqlQuery);
    sqlFilePath = "SQLResults/AppointmentDomain/bookNewApp.json";
    results = await executeQuery(sqlQuery, sqlFilePath);
+   const reaId = results[0].rea_id;
+   console.log("Referral Appointment id is:" + reaId);
 
    var match = await compareJsons(
      sqlFilePath,
@@ -418,6 +420,8 @@ test.describe("Database Comparison Book New App and Cancel", () => {
         console.log(sqlQuery);
         sqlFilePath = "SQLResults/AppointmentDomain/bookNewApp.json";
         results = await executeQuery(sqlQuery, sqlFilePath);
+        const reaId = results[0].rea_id;
+        console.log("Referral Appointment id is:" + reaId);
      
         var match = await compareJsons(
           sqlFilePath,

@@ -250,7 +250,7 @@
   ],
   "addEditAppointments": [
     {
-      "rea_date": "02/12/2024",
+      "rea_date": "03/12/2024",
       "rea_edited_date": "02/12/2023",
       "rea_time": "14:20:00",
       "rea_edited_time": "14:25:00",
@@ -276,7 +276,7 @@
   ],
   "bookNewAppointments": [
     {
-      "rea_date": "02/12/2024",
+      "rea_date": "03/12/2024",
       "rea_time": "14:45:00",
       "convertedTime": "02:45 PM",
       "rea_status": "scheduled",
@@ -300,7 +300,7 @@
   ],
   "nextAvailAppointments": [
     {
-      "rea_date": "02/12/2024",
+      "rea_date": "03/12/2024",
       "rea_edited_date": "02/12/2023",
       "rea_time": "08:00:00",
       "rea_edited_time": "07:50",
@@ -344,11 +344,12 @@
   ],
   "rescheduleAppointments": [
     {
-      "rea_date": "02/12/2024",
-      "rea_edited_date": "02/12/2023",
-      "rea_time": "15:05:00 ",
-      "rea_edited_time": "07:50",
-      "convertedTime": "03:05 PM",
+      "rea_date": "03/12/2024",
+      "rea_edited_date": "03/12/2024",
+      "rea_time": "15:20:00",
+      "rea_edited_time": "15:10:00",
+      "convertedTime": "03:20 PM",
+      "convertedEditedTime": "03:10 PM",
       "rea_status": "scheduled",
       "rea_notes": "AddTesting Notes",
       "rea_duration": 5,
@@ -363,7 +364,7 @@
       "rea_reason_for_delay": "Appointment offered within 48 hours - declined by patient",
       "rea_region_eli_text": "HP Region1",
       "rea_patient_type": "Regular",
-      "rea_end_time": "15:10:00",
+      "rea_end_time": "15:25:00",
       "rea_special": "All Specialties",
       "rea_hp_name_link": "Mr Prerelease AutoEst"
     }
@@ -400,7 +401,7 @@
       "rea_clinic_type_eli_id": 6903,
       "rea_region_eli_id": 6910,
       "rea_region_eli_text": "HP Region1",
-      "rea_updated": "02/12/2024",
+      "rea_updated": "03/12/2024",
       "rea_updated_by": "thayne.auto",
       "rea_patient_type": "Regular",
       "rea_end_time": "07:35:00"
@@ -490,7 +491,7 @@
     {
       "ars_record_status": "wrong",
       "aps_record_status": "wrong",
-      "aps_deleted": "02/12/2024",
+      "aps_deleted": "03/12/2024",
       "aps_deleted_by": "thayne.auto",
       "aps_end_date": "29/12/2023"
     }

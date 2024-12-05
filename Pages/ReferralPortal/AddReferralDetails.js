@@ -31,6 +31,7 @@ class AddReferralDetails
        this.btnPatientSearch=page.getByRole('button', { name: 'Search' })
        this.btnAddPatient=page.getByTestId('Add Patient')
        this.btnReferPatient=page.getByTestId('Refer Patient')
+       this.selectPatient=page.getByTestId('Select')
 
 
        //Add Referral Details
@@ -59,7 +60,7 @@ class AddReferralDetails
        this.btnreferralDocumentAccordion=page.getByTestId('referralDocumentsAccordion')         
        
        //Track Referral
-       this.btnTrackReferral=page.getByTestId('Track Referral')
+       this.btnTrackReferral=page.getByTestId('CommonCellmaPopup').getByTestId('Track Referral')
     }
 
     //Track Referral
@@ -78,37 +79,37 @@ class AddReferralDetails
         await this.btnreferralDocumentAccordion.click()
     }
     //Service Referral Tab
-    async enterReferralNotes()
+    async enterReferralNotes(refNotes)
     {
-        await this.txtboxReferralNotes.type('Added for testing')
+        await this.txtboxReferralNotes.type(refNotes)
     }
-    async selectReferralReason()
+    async selectReferralReason(refReason)
     {
         await this.dropdownReferralReason.click()
-        await this.page.getByRole('option', { name: 'Vision test' }).click()
+        await this.page.getByRole('option', { name: refReason }).click()
     }
-    async selectReferralType()
+    async selectReferralType(refType)
     {
         await this.dropdownReferralType.click()
-        await this.page.getByRole('option', { name: 'Clinical', exact: true }).click()
+        await this.page.getByRole('option', { name: refType, exact: true }).click()
     }
-    async selectPriority()
+    async selectPriority(priority)
     {
         await this.dropdownClinicalPriority.click()
-        await this.page.getByRole('option', { name: 'Priority 1' }).click()
+        await this.page.getByRole('option', { name: priority }).click()
     }
-    async selectConsultant()
+    async selectConsultant(consultant)
     {
         await this.dropdownConsultant.click()
-        await this.page.getByRole('option', { name: 'Miss Dhanashree Abnave' }).click()
+        await this.page.getByRole('option', { name: consultant, exact: true }).click()
     }
-    async enterTimeOfReferral()
+    async enterTimeOfReferral(refTime)
     {
-        await this.txtboxTimeOfReferral.type('03:15 ')
+        await this.txtboxTimeOfReferral.type(refTime)
     }
-    async enterDateOfReferral()
+    async enterDateOfReferral(refDate)
     {
-        await this.txtboxDateOfReferral.type('10/01/2024')
+        await this.txtboxDateOfReferral.type(refDate)
     }
     async selectClinicLocation()
     {
@@ -116,24 +117,24 @@ class AddReferralDetails
         await this.page.locator('#referralServiceClinicLocation-option-0').click()
     }
 
-    async selectClinicType()
+    async selectClinicType(cliType)
     {
         await this.dropdownClinicType.click()
-        await this.page.getByRole('option', { name: 'Cardiology' }).click()
+        await this.page.getByRole('option', { name: cliType }).click()
     }
-    async selectService()
+    async selectService(service)
     {
         await this.dropdownService.click()
-        await this.page.getByRole('option', { name: 'Cardiology' }).click()
+        await this.page.getByRole('option', { name: service }).click()
     }
     async clickOnServiceReferralAccordion()
     {
         await this.btnserviceReferralAccordion.click()
     }
-    async selectEstablishment()
+    async selectEstablishment(establishment)
     {
         await this.dropdownestiblishment.click()
-        await this.page.getByRole('option', { name: 'RioMed Demosite' }).click()
+        await this.page.getByRole('option', { name: establishment }).click()
 
     }
     //Add Referrals Details
@@ -151,10 +152,10 @@ class AddReferralDetails
     }
     
 
-    async selectTitle()
+    async selectTitle(pat_title)
     {
         await this.dropdownTitle.click()
-        await this.page.getByRole('option', { name: 'Mr', exact: true }).click()
+        await this.page.getByRole('option', { name: pat_title, exact: true }).click()
     }
 
     //Add Referral Details Patient Search Section.
@@ -170,14 +171,18 @@ class AddReferralDetails
     {
         await this.txtboxFamilyName.type(FamilyName)
     }
-    async selectSex()
+    async selectSex(Sex)
     {
         await this.dropdownSex.click()
-        await this.page.getByRole('option', { name: 'Male', exact: true }).click()
+        await this.page.getByRole('option', { name: Sex, exact: true }).click()
     }
     async enterBornDate(BornDate)
     {
         await this.txtBornDate.fill(BornDate)
+    }
+    async enterHosptialRefNumber(hosptialRef)
+    {
+        await this.txtboxHospRef.type(hosptialRef)
     }
 
     async clickOnSearchButton()
@@ -203,6 +208,10 @@ class AddReferralDetails
     async clearBarcode()
     {
         await this.txtboxBarcode.fill('')
+    }
+    async clickOnPatientSelect()
+    {
+        await this.selectPatient.click()
     }
 
 

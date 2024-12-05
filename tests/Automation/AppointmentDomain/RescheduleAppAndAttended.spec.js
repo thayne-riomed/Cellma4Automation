@@ -182,7 +182,7 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         
         //await page.pause()
         //Select Morning Slots
-        await servicebookapp.clickOnMorningSlots(jsonData.rescheduleAppointments[index].rea_time)
+        await servicebookapp.clickOnMorningSlots(jsonData.rescheduleAppointments[index].convertedTime)
         // await expect(page.getByText('Appointment slot selected for 11: AM')).toHaveText('Appointment slot selected for 11:25 AM')     
 
         //  await servicebookapp.clickOnNextButton()     
@@ -205,7 +205,7 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await servicebookapp.selectPatientType(jsonData.rescheduleAppointments[index].rea_patient_type)
         //await servicebookapp.selectFreeAppointment()
         await servicebookapp.selectReasonForAppdelay(jsonData.rescheduleAppointments[index].rea_reason_for_delay)
-        await servicebookapp.enterTriage(jsonData.rescheduleAppointments[index].rea_triage)
+        await servicebookapp.enterTriage(jsonData.rescheduleAppointments[index].rea_triage.toString())
         await servicebookapp.enterNotes(jsonData.rescheduleAppointments[index].rea_notes)
         //await servicebookapp.clickOnNextButton()
         await servicebookapp.clickOnSaveAndBookbTodaysDateButton()
@@ -242,6 +242,8 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
       console.log(sqlQuery);
       sqlFilePath = "SQLResults/AppointmentDomain/rescheduleApp.json";
       results = await executeQuery(sqlQuery, sqlFilePath);
+      var reaId = results[0].rea_id;
+      console.log("Referral Appointment id is:" + reaId);
    
       var match = await compareJsons(
         sqlFilePath,
@@ -250,11 +252,11 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
       );
       if (match) {
         console.log(
-          "\n Add Edit Appointment Details Comparision: Parameters from both JSON files match!\n"
+          "\n Reschedule Appointment and Attended Comparision: Parameters from both JSON files match!\n"
         );
       } else {
         console.log(
-          "\n Add Edit Appointment Details Comparision: Parameters from both JSON files do not match!\n"
+          "\n Reschedule Appointment and Attended Comparision: Parameters from both JSON files do not match!\n"
         );
       }
         
@@ -272,7 +274,7 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         
         //await page.pause()
         //Select Morning Slots
-        await servicebookapp.clickOnMorningSlots(jsonData.rescheduleAppointments[index].rea_time) //12:50
+        await servicebookapp.clickOnMorningSlots(jsonData.rescheduleAppointments[index].convertedTime) //12:50
         // await expect(page.getByText('Appointment slot selected for 11: AM')).toHaveText('Appointment slot selected for 11:25 AM')     
 
 
@@ -296,11 +298,10 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await servicebookapp.selectPatientType(jsonData.rescheduleAppointments[index].rea_patient_type)
         //await servicebookapp.selectFreeAppointment()
         await servicebookapp.selectReasonForAppdelay(jsonData.rescheduleAppointments[index].rea_reason_for_delay)
-        await servicebookapp.enterTriage(jsonData.rescheduleAppointments[index].rea_triage)
+        await servicebookapp.enterTriage(jsonData.rescheduleAppointments[index].rea_triage.toString())
         await servicebookapp.enterNotes(jsonData.rescheduleAppointments[index].rea_notes)
         //await servicebookapp.clickOnNextButton()
         await servicebookapp.clickOnSaveAndBookbTodaysDateButton()
-
 
         // await page.pause()
         //Communication Consent
@@ -310,6 +311,43 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await servicebookapp.clickOnCommuConsentSaveButton()
         await expect(page.getByText('Communication consent saved successfully')).toHaveText('Communication consent saved successfully')     
         await page.pause()
+
+        var sqlQuery =
+        "select * from patients where pat_hospital_ref= '" +
+        jsonData.addPatient[index].pat_hospital_ref +
+        "' order by pat_id desc limit 1";
+      console.log(sqlQuery);
+      var sqlFilePath = "SQLResults/AppointmentDomain/patientData.json";
+      var results = await executeQuery(sqlQuery, sqlFilePath);
+      const patId = results[0].pat_id;
+      console.log("Patient id is:" + patId);
+   
+      sqlQuery =
+        "select * from referral_appointments where rea_pat_id = '" +
+        patId +
+        "' and rea_time = '" +
+        jsonData.rescheduleAppointments[index].rea_time +
+        "' and rea_record_status = 'approved'";
+      console.log(sqlQuery);
+      sqlFilePath = "SQLResults/AppointmentDomain/rescheduleApp.json";
+      results = await executeQuery(sqlQuery, sqlFilePath);
+      var reaId = results[0].rea_id;
+      console.log("Referral Appointment id is:" + reaId);
+   
+      var match = await compareJsons(
+        sqlFilePath,
+        null,
+        jsonData.rescheduleAppointments[index]
+      );
+      if (match) {
+        console.log(
+          "\n Appointment Creation Comparison: Parameters from both JSON files match!\n"
+        );
+      } else {
+        console.log(
+          "\n Appointment Creation Comparison: Parameters from both JSON files do not match!\n"
+        );
+      }
         
         //  //Cancel Appointment
         // await scheduleserviceapp.clickOnAppScheduleStatus()
@@ -334,7 +372,25 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         // console.log(AppType)
         //await expect(AppType).toHaveText('Emergency')     
         
-            
+        sqlQuery = "select * from referral_appointments where rea_id = " + reaId;
+        console.log(sqlQuery);
+        sqlFilePath = "SQLResults/AppointmentDomain/rescheduleApp.json";
+        results = await executeQuery(sqlQuery, sqlFilePath);
+     
+        var match = await compareJsons(
+          sqlFilePath,
+          null,
+          jsonData.rescheduleAppointments[index]
+        );
+        if (match) {
+          console.log(
+            "\n Appointment type changed Comparison: Parameters from both JSON files match!\n"
+          );
+        } else {
+          console.log(
+            "\n Appointment type changed Comparison: Parameters from both JSON files do not match!\n"
+          );
+        }
 
 
         //Click On Date Link
@@ -369,14 +425,21 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await servicebookapp.clickOnShowCalendarbtn() 
         // await page.pause()
         //await servicebookapp.clickOnMorningSlots(serviceappdetails.RescheduledAppSlot)
-        await servicebookapp.clickOnAfterNoonSlots(jsonData.rescheduleAppointments[index].rea_time)
-        await servicebookapp.clickOnNextButton()     
+        await servicebookapp.clickOnAfterNoonSlots(jsonData.rescheduleAppointments[index].convertedEditedTime)
+        await page.waitForTimeout(3000)
+        await servicebookapp.clickOnNextButton()
+        
+        const overbookConfirmation = await page.getByRole('heading', { name: 'Confirmation' }).isVisible()
+        if(overbookConfirmation) {
+           await page.getByTestId('Ok').click()
+        }
+
         await servicebookapp.selectAppDetailsAppointmentType(jsonData.rescheduleAppointments[index].reaType)    
         await servicebookapp.selectAppDetailsAppReason(jsonData.rescheduleAppointments[index].rea_review_reason)
         await servicebookapp.selectSendAppTextEmail()
         await servicebookapp.selectPatientType(jsonData.rescheduleAppointments[index].rea_patient_type)    
         await servicebookapp.selectReasonForAppdelay(jsonData.rescheduleAppointments[index].rea_reason_for_delay)
-        await servicebookapp.enterTriage(jsonData.rescheduleAppointments[index].rea_triage)
+        await servicebookapp.enterTriage(jsonData.rescheduleAppointments[index].rea_triage.toString())
         await servicebookapp.enterNotes(jsonData.rescheduleAppointments[index].rea_notes)
         await servicebookapp.clickOnSaveAndBookbTodaysDateButton()
 
@@ -386,7 +449,33 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await servicebookapp.clickOnRadioAllYes()
         await servicebookapp.clickOnCommuConsentSaveButton()
         await expect(page.getByText('Communication consent saved successfully')).toHaveText('Communication consent saved successfully')     
-        
+   
+      sqlQuery =
+        "select * from referral_appointments where rea_pat_id = '" +
+        patId +
+        "' and rea_time = '" +
+        jsonData.rescheduleAppointments[index].rea_edited_time +
+        "' and rea_record_status = 'approved'";
+      console.log(sqlQuery);
+      sqlFilePath = "SQLResults/AppointmentDomain/rescheduleApp.json";
+      results = await executeQuery(sqlQuery, sqlFilePath);
+      var reaId2 = results[0].rea_id;
+      console.log("Referral Appointment id is:" + reaId2);
+   
+      var match = await compareJsons(
+        sqlFilePath,
+        null,
+        jsonData.rescheduleAppointments[index]
+      );
+      if (match) {
+        console.log(
+          "\n Reschedule Appointment and Attended Comparision: Parameters from both JSON files match!\n"
+        );
+      } else {
+        console.log(
+          "\n Reschedule Appointment and Attended Comparision: Parameters from both JSON files do not match!\n"
+        );
+      }
 
         //SchedulePatientAppointment Page. Links
         // await scheduleserviceapp.clickOnLinksMenu()
@@ -463,6 +552,26 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await expect(page.getByText('Patient appointment cancelled successfully')).toHaveText('Patient appointment cancelled successfully')     
         
         //await page.pause()
+
+        sqlQuery = "select * from referral_appointments where rea_id = " + reaId2;
+        console.log(sqlQuery);
+        sqlFilePath = "SQLResults/AppointmentDomain/rescheduleApp.json";
+        results = await executeQuery(sqlQuery, sqlFilePath);
+     
+        var match = await compareJsons(
+          sqlFilePath,
+          null,
+          jsonData.rescheduleAppointments[index]
+        );
+        if (match) {
+          console.log(
+            "\n Cancelled Appointment Comparison: Parameters from both JSON files match!\n"
+          );
+        } else {
+          console.log(
+            "\n Cancelled Appointment Comparison: Parameters from both JSON files do not match!\n"
+          );
+        }
 
         }
             
