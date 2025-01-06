@@ -476,14 +476,12 @@ test.describe("Appointment Domain Db Comparison", () => {
 
       // Print Id Card
 
-      const fileInput = await page.$("input[type=file]");
-      const filePath = "../Cellma4Automation/UploadPics/Patient.png";
-      await fileInput.setInputFiles(filePath);
+      const fileInput = page.getByTestId('PhotoCameraIcon');
+      const filePath = "../Cellma4Automation/UploadPics/Patient.png";        
+      await fileInput.setInputFiles(filePath,fileInput);
       await page.getByTestId("Upload").click();
       await page.waitForTimeout(1000);
-      await expect(
-        page.getByText("Patient photo uploaded successfully")
-      ).toHaveText("Patient photo uploaded successfully");
+      await expect(page.getByText('Patient photo uploaded successfully')).toHaveText('Patient photo uploaded successfully')
       await printidcard.clickOnSavebtn();
       await page.waitForTimeout(2000);
 

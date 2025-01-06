@@ -125,12 +125,10 @@ test.describe("Database Comparison Add Edit Patient", () => {
     await page.waitForTimeout(7000);
     await confirmexisting.clickOnConfirmExistingDetails();
 
-    const addReferralText = await page
-      .locator("xpath=//div/h1[text()='Add a Referral']")
-      .isVisible();
+    const addReferralText = await page.getByRole('heading', { name: 'Add a Referral' }).isVisible();
     //console.log(addReferralText)
     //await page.pause()
-    if (addReferralText == true) {
+    if (addReferralText) {
       // await menu.clickOnMenubtn()
       // await menu.clickOnAddReferrallink()
       //Add New Referral to Patient.
@@ -236,7 +234,7 @@ test.describe("Database Comparison Add Edit Patient", () => {
       //await page.pause()
       //Select Morning Slots
       await servicebookapp.clickOnMorningSlotstoAddApp(
-        jsonData.addEditAppointments[index].rea_time
+        jsonData.addEditAppointments[index].convertedTime
       );
       // await expect(page.getByText('Appointment slot selected for 11: AM')).toHaveText('Appointment slot selected for 11:25 AM')
 

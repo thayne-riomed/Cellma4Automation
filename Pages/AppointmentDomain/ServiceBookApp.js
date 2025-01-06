@@ -122,8 +122,8 @@ class ServiceBookApp {
     this.radioAllYes=page.getByLabel('All Yes')
     this.btnSaveCommuConsent=page.locator("xpath=//button[@data-testid='Save']")
   }
-  async clickOnAfterNoonSlot() {
-    await this.afternoonSlot.click();
+  async clickOnAfterNoonSlot(reaNextAvailAppt) {
+    await thispage.getByTestId(reaNextAvailAppt).click()
   }
 
   //Links While Add Referral

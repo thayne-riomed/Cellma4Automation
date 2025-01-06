@@ -1,6 +1,10 @@
 {
   "loginDetails": [
     {
+      "username": "jadon.auto",
+      "password": "Jadon@2024"
+    },
+    {
       "username": "thayne.auto",
       "password": "Thayne@2024"
     },
@@ -15,9 +19,9 @@
   ],
   "addPatient": [
     {
-      "pat_hospital_ref": "hosp0924id006",
+      "pat_hospital_ref": "hosp0924id010",
       "pat_title": "Mr",
-      "pat_firstname": "SeraphimF",
+      "pat_firstname": "Seraphimm",
       "pat_surname": "Riomedtest",
       "pat_sex": "M",
       "pat_dob": "13/09/2024",
@@ -50,7 +54,7 @@
     {
       "pat_hospital_ref": "AutoHosp109",
       "pat_title": "B/O",
-      "pat_firstname": "SeraphimF",
+      "pat_firstname": "Seraphimm",
       "pat_surname": "Riomedtest",
       "pat_sex": "M",
       "pat_dob": "13/09/2024",
@@ -81,7 +85,7 @@
   ],
   "patientIdentifier": [
     {
-      "pat_firstname": "SeraphimF",
+      "pat_firstname": "Seraphimm",
       "pat_lastname": "Riomedtest",
       "pat_sex": "M",
       "pat_dob": "13/09/2024",
@@ -90,7 +94,7 @@
       "pat_country": "India",
       "pat_title": "B/O",
       "pat_middlename": "Martin",
-      "add_email": "SeraphimF.Riomedtest@Gmail.com"
+      "add_email": "Seraphimm.Riomedtest@Gmail.com"
     }
   ],
   "tempAddress": [
@@ -250,11 +254,11 @@
   ],
   "addEditAppointments": [
     {
-      "rea_date": "03/12/2024",
+      "rea_date": "17/12/2024",
       "rea_edited_date": "02/12/2023",
-      "rea_time": "14:20:00",
+      "rea_time": "08:25:00",
       "rea_edited_time": "14:25:00",
-      "convertedTime": "02:20 PM",
+      "convertedTime": "08:25 AM",
       "rea_status": "scheduled",
       "rea_notes": "AddTesting Notes",
       "rea_duration": 5,
@@ -269,16 +273,16 @@
       "rea_reason_for_delay": "Appointment offered within 48 hours - declined by patient",
       "rea_region_eli_text": "HP Region1",
       "rea_patient_type": "Regular",
-      "rea_end_time": "14:25:00",
+      "rea_end_time": "08:30:00",
       "rea_special": "All Specialties",
       "rea_hp_name_link": "Mr Prerelease AutoEst"
     }
   ],
   "bookNewAppointments": [
     {
-      "rea_date": "03/12/2024",
-      "rea_time": "14:45:00",
-      "convertedTime": "02:45 PM",
+      "rea_date": "17/12/2024",
+      "rea_time": "10:15:00",
+      "convertedTime": "10:15 AM",
       "rea_status": "scheduled",
       "rea_notes": "AddTesting Notes",
       "rea_duration": 5,
@@ -293,33 +297,33 @@
       "rea_reason_for_delay": "Appointment offered within 48 hours - declined by patient",
       "rea_region_eli_text": "HP Region1",
       "rea_patient_type": "Regular",
-      "rea_end_time": "14:50:00",
+      "rea_end_time": "10:20:00",
       "rea_special": "All Specialties",
       "rea_hp_name_link": "Mr Prerelease AutoEst"
     }
   ],
   "nextAvailAppointments": [
     {
-      "rea_date": "03/12/2024",
+      "rea_date": "17/12/2024",
       "rea_edited_date": "02/12/2023",
-      "rea_time": "08:00:00",
-      "rea_edited_time": "07:50",
-      "convertedTime": "08:00 AM",
+      "rea_time": "12:00:00",
+      "convertedTime": "12:00 PM",
+      "reaNextAvailApp": "Mr Prerelease AutoEst 12:00 PM",
       "rea_status": "scheduled",
       "rea_notes": "AddTesting Notes",
       "rea_duration": 5,
       "rea_type": "new",
       "reaType": "New",
       "rea_review_reason": "Appointment Reason for Testing",
-      "rea_location": "Cath Lab Location",
+      "rea_location": "Cardio Location",
       "rea_triage": 1,
-      "rea_clinic_type": "Cardiology",
+      "rea_clinic_type": "Cardiology Clinic",
       "rea_cancelled_reason": "App Cancel for Testing Reason",
       "rea_slot_duration": 5,
       "rea_reason_for_delay": "Appointment offered within 48 hours - declined by patient",
       "rea_region_eli_text": "HP Region1",
       "rea_patient_type": "Regular",
-      "rea_end_time": "08:05:00",
+      "rea_end_time": "12:05:00",
       "rea_special": "All Specialties",
       "rea_hp_name_link": "Mr Prerelease AutoEst"
     }
@@ -344,12 +348,12 @@
   ],
   "rescheduleAppointments": [
     {
-      "rea_date": "03/12/2024",
-      "rea_edited_date": "03/12/2024",
-      "rea_time": "15:20:00",
-      "rea_edited_time": "15:10:00",
-      "convertedTime": "03:20 PM",
-      "convertedEditedTime": "03:10 PM",
+      "rea_date": "17/12/2024",
+      "rea_edited_date": "17/12/2024",
+      "rea_time": "15:50:00",
+      "rea_edited_time": "17:40:00",
+      "convertedTime": "03:50 PM",
+      "convertedEditedTime": "05:40 PM",
       "rea_status": "scheduled",
       "rea_notes": "AddTesting Notes",
       "rea_duration": 5,
@@ -364,7 +368,7 @@
       "rea_reason_for_delay": "Appointment offered within 48 hours - declined by patient",
       "rea_region_eli_text": "HP Region1",
       "rea_patient_type": "Regular",
-      "rea_end_time": "15:25:00",
+      "rea_end_time": "15:55:00",
       "rea_special": "All Specialties",
       "rea_hp_name_link": "Mr Prerelease AutoEst"
     }
@@ -401,7 +405,7 @@
       "rea_clinic_type_eli_id": 6903,
       "rea_region_eli_id": 6910,
       "rea_region_eli_text": "HP Region1",
-      "rea_updated": "03/12/2024",
+      "rea_updated": "17/12/2024",
       "rea_updated_by": "thayne.auto",
       "rea_patient_type": "Regular",
       "rea_end_time": "07:35:00"
@@ -491,7 +495,7 @@
     {
       "ars_record_status": "wrong",
       "aps_record_status": "wrong",
-      "aps_deleted": "03/12/2024",
+      "aps_deleted": "17/12/2024",
       "aps_deleted_by": "thayne.auto",
       "aps_end_date": "29/12/2023"
     }

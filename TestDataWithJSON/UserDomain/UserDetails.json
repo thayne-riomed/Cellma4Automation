@@ -25,12 +25,12 @@
   ],
   "createUser": [
     {
-      "use_increment": 20,
-      "use_username": "Test.20User",
+      "use_increment": 22,
+      "use_username": "Test.22User",
       "use_firstname": "Auto",
       "use_password": "Manoj@2024",
       "use_surname": "Riomedtest",
-      "use_email": "thayne.sampson20@riomed.com",
+      "use_email": "thayne.sampson22@riomed.com",
       "use_expires": "30/06/2035",
       "use_title": "Mr",
       "use_profession": "Consultant",

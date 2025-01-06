@@ -114,7 +114,7 @@ test.describe("Database Comparison Reschedule Appointment and Attended", () => {
         await page.waitForTimeout(5000);
         await confirmexisting.clickOnConfirmExistingDetails();
         await page.pause()
-        const addReferralText= await page.locator("xpath=//div/h1[text()='Add a Referral']").isVisible()   
+        const addReferralText = await page.getByRole('heading', { name: 'Add a Referral' }).isVisible();
         //console.log(addReferralText)
         if(addReferralText==true)
         {       

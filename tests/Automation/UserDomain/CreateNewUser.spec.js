@@ -76,175 +76,175 @@ test.describe("Database Comparison Add New User", () => {
         await homepage.clickonSidebarHomeIcon() 
         await homepage.clickOnUserIcon()   
         
-        //Check Links  
-        await usersearch.clickOnLinkLinks()
-        await usersearch.clickOnAddMPIUserLink()
-        await usersearch.clickOnCancelbutton()
-        await usersearch.clickOnLinkLinks()
-        await usersearch.clickOnRefreshlink()
-        await usersearch.clickOnCancelbutton()
-        await usersearch.clickOnLinkLinks()
-        await usersearch.clickOnServiceDetailsLink()
-        await usersearch.clickOnCancelbutton()
+    //     //Check Links  
+    //     await usersearch.clickOnLinkLinks()
+    //     await usersearch.clickOnAddMPIUserLink()
+    //     await usersearch.clickOnCancelbutton()
+    //     await usersearch.clickOnLinkLinks()
+    //     await usersearch.clickOnRefreshlink()
+    //     await usersearch.clickOnCancelbutton()
+    //     await usersearch.clickOnLinkLinks()
+    //     await usersearch.clickOnServiceDetailsLink()
+    //     await usersearch.clickOnCancelbutton()
 
-        //User List page 
+    //     //User List page 
 
-        await usersearch.enterUserSearch(jsonData.createUser[index].use_username_old)
-        await usersearch.clickOnSearchButton()
-        //await page.pause()
-        await usersearch.clickOnViewLink()
-        await hpdiary.clickOnBackButton()
-        await usersearch.enterUserSearch(jsonData.createUser[index].use_username_old)
-        await usersearch.clickOnSearchButton()
-        await usersearch.clickOnResetLink()
-        // await usersearch.enterInvConfirmNewPassword(createuserdata.InvNewPassword)
-        // await usersearch.enterInvConfirmPassword(createuserdata.InvConfirmPassword)
-        // await page.pause()
-        // await usersearch.clickOnSavePasswordBtn()
-        // await expect(page.getByText('Please enter different Password')).toHaveText('Please enter different Password')
-        await usersearch.enterConfirmNewPassword(jsonData.createUser[index].use_password)
-        await usersearch.enterConfirmPassword(jsonData.createUser[index].use_password)
-        await usersearch.clickOnSavePasswordBtn()
-        await expect(page.getByText('Password has been changed successfully')).toHaveText('Password has been changed successfully')
+    //     await usersearch.enterUserSearch(jsonData.createUser[index].use_username_old)
+    //     await usersearch.clickOnSearchButton()
+    //     //await page.pause()
+    //     await usersearch.clickOnViewLink()
+    //     await hpdiary.clickOnBackButton()
+    //     await usersearch.enterUserSearch(jsonData.createUser[index].use_username_old)
+    //     await usersearch.clickOnSearchButton()
+    //     await usersearch.clickOnResetLink()
+    //     // await usersearch.enterInvConfirmNewPassword(createuserdata.InvNewPassword)
+    //     // await usersearch.enterInvConfirmPassword(createuserdata.InvConfirmPassword)
+    //     // await page.pause()
+    //     // await usersearch.clickOnSavePasswordBtn()
+    //     // await expect(page.getByText('Please enter different Password')).toHaveText('Please enter different Password')
+    //     await usersearch.enterConfirmNewPassword(jsonData.createUser[index].use_password)
+    //     await usersearch.enterConfirmPassword(jsonData.createUser[index].use_password)
+    //     await usersearch.clickOnSavePasswordBtn()
+    //     await expect(page.getByText('Password has been changed successfully')).toHaveText('Password has been changed successfully')
 
-        //Search User
-        await usersearch.enterUserSearch(jsonData.createUser[index].use_username)
-        await usersearch.enterGivenName(jsonData.createUser[index].use_firstname)
-        await usersearch.enterFamilyName(jsonData.createUser[index].use_surname)
+    //     //Search User
+    //     await usersearch.enterUserSearch(jsonData.createUser[index].use_username)
+    //     await usersearch.enterGivenName(jsonData.createUser[index].use_firstname)
+    //     await usersearch.enterFamilyName(jsonData.createUser[index].use_surname)
         
-        await usersearch.selectUserStatus()
-        await page.waitForTimeout(1000)
-        await usersearch.selectUserService()
-        //await page.pause()
-        await usersearch.clickOnSearchButton()
-        await usersearch.clickOnAddUser()
-        await adduserwizard.clickOnBackButton()
-        await usersearch.clickOnAddUser()
+    //     await usersearch.selectUserStatus()
+    //     await page.waitForTimeout(1000)
+    //     await usersearch.selectUserService()
+    //     //await page.pause()
+    //     await usersearch.clickOnSearchButton()
+    //     await usersearch.clickOnAddUser()
+    //     await adduserwizard.clickOnBackButton()
+    //     await usersearch.clickOnAddUser()
 
 
-        //Customisable view
-        await adduserwizard.clickOnCustomSettingbtn()
-        await adduserwizard.clickOnCustomisableView()
-        await adduserwizard.clickOnSave()
-        await expect(page.getByText('Customize view added successfully')).toHaveText('Customize view added successfully')
-        await adduserwizard.clickOnSave()
-        //check mandatory fields message
-        await expect(page.getByText('Username required')).toHaveText('Username required')    
-        //await expect(page.getByText('Password required')).toHaveText('Password required')
-        //await expect(page.getByText('Confirm Password required')).toHaveText('Confirm Password required')
-        await expect(page.getByText('Email required')).toHaveText('Email required')
-        await expect(page.getByText('Given Name required')).toHaveText('Given Name required')
-        await expect(page.getByText('Family Name required')).toHaveText('Family Name required')
-        await expect(page.getByText('Profession required')).toHaveText('Profession required')
+    //     //Customisable view
+    //     await adduserwizard.clickOnCustomSettingbtn()
+    //     await adduserwizard.clickOnCustomisableView()
+    //     await adduserwizard.clickOnSave()
+    //     await expect(page.getByText('Customize view added successfully')).toHaveText('Customize view added successfully')
+    //     await adduserwizard.clickOnSave()
+    //     //check mandatory fields message
+    //     await expect(page.getByText('Username required')).toHaveText('Username required')    
+    //     //await expect(page.getByText('Password required')).toHaveText('Password required')
+    //     //await expect(page.getByText('Confirm Password required')).toHaveText('Confirm Password required')
+    //     await expect(page.getByText('Email required')).toHaveText('Email required')
+    //     await expect(page.getByText('Given Name required')).toHaveText('Given Name required')
+    //     await expect(page.getByText('Family Name required')).toHaveText('Family Name required')
+    //     await expect(page.getByText('Profession required')).toHaveText('Profession required')
 
-        //Upload Photo
+    //     //Upload Photo
 
-        //await page.getByTestId('EditIcon').click()
+    //     //await page.getByTestId('EditIcon').click()
         
-        // Get the upload input element
-        await page.getByTestId('EditIcon').locator('path').click();
-        // const fileInput = page.getByTestId('PhotoCameraIcon');  
-        // // Set the file to upload
-        // const filePath = '../Cellma Daily Change/UploadPics/User_1.png';  
-        // // Upload the file
-        // await fileInput.setInputFiles(filePath); 
-        // await page.getByTestId('Upload').click()
+    //     // Get the upload input element
+    //     await page.getByTestId('EditIcon').locator('path').click();
+    //     // const fileInput = page.getByTestId('PhotoCameraIcon');  
+    //     // // Set the file to upload
+    //     // const filePath = '../Cellma Daily Change/UploadPics/User_1.png';  
+    //     // // Upload the file
+    //     // await fileInput.setInputFiles(filePath); 
+    //     // await page.getByTestId('Upload').click()
 
-        //const fileInput = await page.$("input[type=file]");
-        const fileInput = page.getByTestId('PhotoCameraIcon');
-        const filePath = "../Cellma Daily change/UploadPics/User_1.png";        
-        await fileInput.setInputFiles(filePath,fileInput);
-        await page.getByTestId("Upload").click();
-        await page.waitForTimeout(1000);
-
-
-    // Select the file input element and upload the file
-    //  const filePath = 'path/to/your/photo.jpg';
-    //  await page.setInputFiles('input[type="file"]', filePath);
+    //     //const fileInput = await page.$("input[type=file]");
+    //     const fileInput = page.getByTestId('PhotoCameraIcon');
+    //     const filePath = "../Cellma Daily change/UploadPics/User_1.png";        
+    //     await fileInput.setInputFiles(filePath,fileInput);
+    //     await page.getByTestId("Upload").click();
+    //     await page.waitForTimeout(1000);
 
 
+    // // Select the file input element and upload the file
+    // //  const filePath = 'path/to/your/photo.jpg';
+    // //  await page.setInputFiles('input[type="file"]', filePath);
 
 
 
 
 
 
-        //Upload Digital signature
-        // await page.pause()    
-        // const filePath1 = '../Cellma4Automation/UploadPics/Digital_Signature.png';
-        // await fileInput.setInputFiles(filePath1); 
-        // await page.getByText('No File Chosen').setInputFiles(filePath1);
+
+
+    //     //Upload Digital signature
+    //     // await page.pause()    
+    //     // const filePath1 = '../Cellma4Automation/UploadPics/Digital_Signature.png';
+    //     // await fileInput.setInputFiles(filePath1); 
+    //     // await page.getByText('No File Chosen').setInputFiles(filePath1);
         
-        // await page.getByTestId('EditIcon').locator('path').click();
-        // await page.getByTestId('PhotoCameraIcon').click();
-        // const filePath = '../Cellma4Automation/UploadPics/Patient.png'; 
-        // await fileInput.setInputFiles(filePath);
-        // await page.getByTestId('Upload').click();
+    //     // await page.getByTestId('EditIcon').locator('path').click();
+    //     // await page.getByTestId('PhotoCameraIcon').click();
+    //     // const filePath = '../Cellma4Automation/UploadPics/Patient.png'; 
+    //     // await fileInput.setInputFiles(filePath);
+    //     // await page.getByTestId('Upload').click();
 
-        //User Wizard 
-        //User details
-        await adduserwizard.selectTitle(jsonData.createUser[index].use_title)
-        await adduserwizard.enterUsername(jsonData.createUser[index].use_username_old)
-        await adduserwizard.enterPassword(jsonData.createUser[index].use_password)
-        await adduserwizard.enterConfirmPassword(jsonData.createUser[index].use_password)
-        await adduserwizard.enterEmail(jsonData.createUser[index].use_email)
-        await adduserwizard.enterGivenName(jsonData.createUser[index].use_firstname)
-        await adduserwizard.enterFamilyName(jsonData.createUser[index].use_surname)
-        await adduserwizard.selectSubscribed()
-        await adduserwizard.selectUserServiceGroup()    
-        await adduserwizard.enterNotes(jsonData.createUser[index].use_notes)
-        //await adduserwizard.selectShowOnExtRefPage()
-        await adduserwizard.enterMobileNumber(jsonData.createUser[index].use_mobile.toString())
-        await adduserwizard.selectShowExternalRequestPage()
-        await adduserwizard.enterUserExpireDate(jsonData.createUser[index].use_expires)
-        await adduserwizard.selectProfession(jsonData.createUser[index].use_profession)
-        await adduserwizard.enterMCRNNumber(jsonData.createUser[index].use_mcrn_number.toString())
+    //     //User Wizard 
+    //     //User details
+    //     await adduserwizard.selectTitle(jsonData.createUser[index].use_title)
+    //     await adduserwizard.enterUsername(jsonData.createUser[index].use_username_old)
+    //     await adduserwizard.enterPassword(jsonData.createUser[index].use_password)
+    //     await adduserwizard.enterConfirmPassword(jsonData.createUser[index].use_password)
+    //     await adduserwizard.enterEmail(jsonData.createUser[index].use_email)
+    //     await adduserwizard.enterGivenName(jsonData.createUser[index].use_firstname)
+    //     await adduserwizard.enterFamilyName(jsonData.createUser[index].use_surname)
+    //     await adduserwizard.selectSubscribed()
+    //     await adduserwizard.selectUserServiceGroup()    
+    //     await adduserwizard.enterNotes(jsonData.createUser[index].use_notes)
+    //     //await adduserwizard.selectShowOnExtRefPage()
+    //     await adduserwizard.enterMobileNumber(jsonData.createUser[index].use_mobile.toString())
+    //     await adduserwizard.selectShowExternalRequestPage()
+    //     await adduserwizard.enterUserExpireDate(jsonData.createUser[index].use_expires)
+    //     await adduserwizard.selectProfession(jsonData.createUser[index].use_profession)
+    //     await adduserwizard.enterMCRNNumber(jsonData.createUser[index].use_mcrn_number.toString())
         
-        //await adduserwizard.selectUserStatus()
-        //await adduserwizard.selectResetPassword()    
-        //Add user group pop up details
+    //     //await adduserwizard.selectUserStatus()
+    //     //await adduserwizard.selectResetPassword()    
+    //     //Add user group pop up details
     
-        await adduserwizard.clickOnAddLink()
-        await page.waitForTimeout(2000)   
-        //await page.pause() 
-        await adduserwizard.addUserGroup()   
+    //     await adduserwizard.clickOnAddLink()
+    //     await page.waitForTimeout(2000)   
+    //     //await page.pause() 
+    //     await adduserwizard.addUserGroup()   
         
-        //User HP Details
-        //await adduserwizard.toggleContactHidden()
-        //await adduserwizard.toggleHPOnDiary()
-        //await adduserwizard.toggleUserIsHP()
+    //     //User HP Details
+    //     //await adduserwizard.toggleContactHidden()
+    //     //await adduserwizard.toggleHPOnDiary()
+    //     //await adduserwizard.toggleUserIsHP()
 
-        // Create By: Manoj V.
-        // Date:30/05/2023
-        //await page.pause()
-        await adduserwizard.toggleUserIsHP()
-        await adduserwizard.toggleHPOnDiary()
-        await adduserwizard.enterInitial(jsonData.createEstProfessional[index].esp_initials)
-        await adduserwizard.selectConsultant()
-        await adduserwizard.enterPROMsSurname(jsonData.createEstProfessional[index].esp_surname)    
-        await adduserwizard.selectSpecialty(jsonData.createEstProfessional[index].esp_specialty)
-        await adduserwizard.enterFirstValidity(jsonData.createEstProfessional[index].esp_first_consultation_validity.toString())
-        await adduserwizard.selectShow()
-        await adduserwizard.enterConstCode(jsonData.createEstProfessional[index].esp_consultant_code)
-        await adduserwizard.enterFollowupValidity(jsonData.createEstProfessional[index].esp_follow_up_consultation_validity.toString())    
-        await adduserwizard.selectGenericHP()
-        await adduserwizard.selectTeams(jsonData.createEstProfessional[index].esp_region_eli_text)
-        await adduserwizard.enterNPINumber(jsonData.createEstProfessional[index].esp_npi_number.toString())   
-        await adduserwizard.selectApptEmail()
-        await adduserwizard.selectPROMsReason()
-        await adduserwizard.selectLocal()
-        await adduserwizard.selectCommissionLevel(jsonData.createEstProfessional[index].esp_commision_level)      
-        //await adduserwizard.enterPROMsNumber(jsonData.createEstProfessional[index].esp_hp_proms_code)    
-        await adduserwizard.clickOnSave()
-        await expect(page.getByText('User Already Exists')).toHaveText('User Already Exists')    
-        await usersearch.enterUserSearch(jsonData.createUser[index].use_username)
-        await adduserwizard.clickOnSave()
-        //await expect(page.getByText('User and HP created successfully')).toHaveText('User and HP created successfully')
+    //     // Create By: Manoj V.
+    //     // Date:30/05/2023
+    //     //await page.pause()
+    //     await adduserwizard.toggleUserIsHP()
+    //     await adduserwizard.toggleHPOnDiary()
+    //     await adduserwizard.enterInitial(jsonData.createEstProfessional[index].esp_initials)
+    //     await adduserwizard.selectConsultant()
+    //     await adduserwizard.enterPROMsSurname(jsonData.createEstProfessional[index].esp_surname)    
+    //     await adduserwizard.selectSpecialty(jsonData.createEstProfessional[index].esp_specialty)
+    //     await adduserwizard.enterFirstValidity(jsonData.createEstProfessional[index].esp_first_consultation_validity.toString())
+    //     await adduserwizard.selectShow()
+    //     await adduserwizard.enterConstCode(jsonData.createEstProfessional[index].esp_consultant_code)
+    //     await adduserwizard.enterFollowupValidity(jsonData.createEstProfessional[index].esp_follow_up_consultation_validity.toString())    
+    //     await adduserwizard.selectGenericHP()
+    //     await adduserwizard.selectTeams(jsonData.createEstProfessional[index].esp_region_eli_text)
+    //     await adduserwizard.enterNPINumber(jsonData.createEstProfessional[index].esp_npi_number.toString())   
+    //     await adduserwizard.selectApptEmail()
+    //     await adduserwizard.selectPROMsReason()
+    //     await adduserwizard.selectLocal()
+    //     await adduserwizard.selectCommissionLevel(jsonData.createEstProfessional[index].esp_commision_level)      
+    //     //await adduserwizard.enterPROMsNumber(jsonData.createEstProfessional[index].esp_hp_proms_code)    
+    //     await adduserwizard.clickOnSave()
+    //     await expect(page.getByText('User Already Exists')).toHaveText('User Already Exists')    
+    //     await usersearch.enterUserSearch(jsonData.createUser[index].use_username)
+    //     await adduserwizard.clickOnSave()
+    //     //await expect(page.getByText('User and HP created successfully')).toHaveText('User and HP created successfully')
     
-        //await this.page.locator('div').filter({ hasText: 'Is User Going On DiaryYesNo' }).getByRole('button', { name: 'Yes' }).click()
-        //await page.pause()
+    //     //await this.page.locator('div').filter({ hasText: 'Is User Going On DiaryYesNo' }).getByRole('button', { name: 'Yes' }).click()
+    //     //await page.pause()
 
-        await adduserwizard.clickOnNext()
+         await adduserwizard.clickOnNext()
                
         // Set HP Dairy
         await sethpdairy.clickOnSavebnt()

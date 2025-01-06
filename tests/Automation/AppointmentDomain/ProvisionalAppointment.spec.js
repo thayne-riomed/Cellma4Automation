@@ -96,7 +96,7 @@ test.describe("Database Comparison Add Edit Patient", () => {
         await page.waitForTimeout(4000) 
         await confirmexisting.clickOnConfirmExistingDetails() 
         await page.pause()
-        const addReferralText= await page.locator("xpath=//div/h1[text()='Add a Referral']").isVisible()   
+        const addReferralText = await page.getByRole('heading', { name: 'Add a Referral' }).isVisible();
         //console.log(addReferralText)
         if(addReferralText==true)
         {  

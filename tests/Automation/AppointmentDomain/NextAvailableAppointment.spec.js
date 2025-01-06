@@ -107,7 +107,7 @@ test.describe("Database Comparison Add Edit Patient", () => {
     await confirmexisting.clickOnConfirmExistingDetails()
     await page.waitForTimeout(3000);   
      //await page.pause() 
-    const addReferralText= await page.locator("xpath=//div/h1[text()='Add a Referral']").isVisible()   
+     const addReferralText = await page.getByRole('heading', { name: 'Add a Referral' }).isVisible();
     //console.log(addReferralText)
    // await page.pause()
     if(addReferralText==true)
@@ -152,7 +152,7 @@ test.describe("Database Comparison Add Edit Patient", () => {
      await servicebookapp.clickonClinicTypeButton(jsonData.nextAvailAppointments[index].rea_clinic_type)
      await servicebookapp.clickOnCardioLocationButton(jsonData.nextAvailAppointments[index].rea_location)
      await servicebookapp.clickOnNextButton()
-     await servicebookapp.clickOnAfterNoonSlot()
+     await servicebookapp.clickOnAfterNoonSlot(jsonData.nextAvailAppointments[index].reaNextAvailApp)
      await servicebookapp.clickOnNextButton()     
      await servicebookapp.selectAppDetailsAppointmentType(jsonData.nextAvailAppointments[index].reaType)    
      await servicebookapp.selectAppDetailsAppReason(jsonData.nextAvailAppointments[index].rea_review_reason)
@@ -160,7 +160,7 @@ test.describe("Database Comparison Add Edit Patient", () => {
      await servicebookapp.selectPatientType(jsonData.nextAvailAppointments[index].rea_patient_type)
      //await servicebookapp.selectFreeAppointment()
      await servicebookapp.selectReasonForAppdelay(jsonData.nextAvailAppointments[index].rea_reason_for_delay)
-     await servicebookapp.enterTriage(jsonData.nextAvailAppointments[index].rea_triage)
+     await servicebookapp.enterTriage(jsonData.nextAvailAppointments[index].rea_triage.toString())
      await servicebookapp.enterNotes(jsonData.nextAvailAppointments[index].rea_notes)
      await servicebookapp.clickOnNextButton()
      //await servicebookapp.clickOnSaveAndBookbTodaysDateButton()
@@ -175,13 +175,13 @@ test.describe("Database Comparison Add Edit Patient", () => {
        
 }
 else{    
-     //await page.pause()     
+     await page.pause()     
      await servicebookapp.SelectDate(jsonData.nextAvailAppointments[index].rea_date.toString())     
      await servicebookapp.clickOnNextAvailableAppButton()
      await servicebookapp.clickonClinicTypeButton(jsonData.nextAvailAppointments[index].rea_clinic_type)
      await servicebookapp.clickOnCardioLocationButton(jsonData.nextAvailAppointments[index].rea_location)
      await servicebookapp.clickOnNextButton()
-     await servicebookapp.clickOnAfterNoonSlot()
+     await servicebookapp.clickOnAfterNoonSlot(jsonData.nextAvailAppointments[index].reaNextAvailApp)
      await servicebookapp.clickOnNextButton()
      //await page.pause()
      await servicebookapp.selectAppDetailsAppointmentType(jsonData.nextAvailAppointments[index].reaType)        
@@ -189,7 +189,7 @@ else{
      await servicebookapp.selectSendAppTextEmail()
      await servicebookapp.selectPatientType(jsonData.nextAvailAppointments[index].rea_patient_type)
      await servicebookapp.selectReasonForAppdelay(jsonData.nextAvailAppointments[index].rea_reason_for_delay)
-     await servicebookapp.enterTriage(jsonData.nextAvailAppointments[index].rea_triage)  
+     await servicebookapp.enterTriage(jsonData.nextAvailAppointments[index].rea_triage.toString())  
      await servicebookapp.enterNotes(jsonData.nextAvailAppointments[index].rea_notes)     
      await servicebookapp.clickOnNextButton()
      //Communication Consent
@@ -306,12 +306,12 @@ var sqlQuery =
       sqlQuery =
         "select * from referral_appointments where rea_pat_id = '" +
         patId +
-        "' and rea_time = '" +
-        jsonData.nextAvailAppointments[index].rea_time +
-        "' and rea_record_status = 'approved'";
+        "' and rea_record_status = 'approved' order by 1 desc limit 1";
       console.log(sqlQuery);
       sqlFilePath = "SQLResults/AppointmentDomain/nextAvailableApp.json";
       results = await executeQuery(sqlQuery, sqlFilePath);
+      const reaId = results[0].rea_id;
+      console.log("Referral Appointment id is:" + reaId);
 
       var match = await compareJsons(
         sqlFilePath,
@@ -320,11 +320,11 @@ var sqlQuery =
       );
       if (match) {
         console.log(
-          "\n Add Edit Appointment Details Comparision: Parameters from both JSON files match!\n"
+          "\n Next Available Appointment Details Comparison: Parameters from both JSON files match!\n"
         );
       } else {
         console.log(
-          "\n Add Edit Appointment Details Comparision: Parameters from both JSON files do not match!\n"
+          "\n Next Available Appointment Details Comparison: Parameters from both JSON files do not match!\n"
         );
       }
 
@@ -348,11 +348,11 @@ var sqlQuery =
     );
     if (match) {
       console.log(
-        "\n Add Edit Appointment Details Comparision: Parameters from both JSON files match!\n"
+        "\n Next Available Appointment Updated Details Comparison: Parameters from both JSON files match!\n"
       );
     } else {
       console.log(
-        "\n Add Edit Appointment Details Comparision: Parameters from both JSON files do not match!\n"
+        "\n Next Available Appointment Updated Details Comparison: Parameters from both JSON files do not match!\n"
       );
     }
         

@@ -115,10 +115,10 @@ test.describe("Database Comparison Book New App and Cancel", () => {
      //await patientsearch.ClickOnYesConfirmLegitimateRelationship()
      await page.waitForTimeout(5000);    
      await confirmexisting.clickOnConfirmExistingDetails()
-     const addReferralText= await page.locator("xpath=//div/h1[text()='Add a Referral']").isVisible()   
+     const addReferralText = await page.getByRole('heading', { name: 'Add a Referral' }).isVisible();
      //console.log(addReferralText)
      //await page.pause()
-     if(addReferralText==true)
+     if(addReferralText)
      {       
      //Add New Referral to Patient.
      await page.waitForTimeout(1500);
@@ -401,6 +401,13 @@ test.describe("Database Comparison Book New App and Cancel", () => {
           await servicebookapp.enterNotes(jsonData.bookNewAppointments[index].rea_notes)    
           await servicebookapp.clickOnSaveAndBookbTodaysDateButton()
 
+          //Communication Consent
+          await servicebookapp.selectCommConsentNo()
+          await servicebookapp.clikcOnRadioAllNo()
+          //await servicebookapp.clickOnRadioAllYes()
+          await servicebookapp.clickOnCommuConsentSaveButton()
+          await expect(page.getByText('Communication consent saved successfully')).toHaveText('Communication consent saved successfully')     
+          
           var sqlQuery =
           "select * from patients where pat_hospital_ref= '" +
           jsonData.addPatient[index].pat_hospital_ref +
@@ -437,14 +444,6 @@ test.describe("Database Comparison Book New App and Cancel", () => {
             "\n Add Edit Appointment Details Comparision: Parameters from both JSON files do not match!\n"
           );
         }
-
-          //Communication Consent
-          await servicebookapp.selectCommConsentNo()
-          await servicebookapp.clikcOnRadioAllNo()
-          //await servicebookapp.clickOnRadioAllYes()
-          await servicebookapp.clickOnCommuConsentSaveButton()
-          await expect(page.getByText('Communication consent saved successfully')).toHaveText('Communication consent saved successfully')     
-          
 
                //SchedulePatientAppointment Page. Links
      //      await scheduleserviceapp.clickOnLinksMenu()
@@ -528,7 +527,7 @@ test.describe("Database Comparison Book New App and Cancel", () => {
      //Cancel Appointment
      await scheduleserviceapp.clickOnAppScheduleStatus()
      await scheduleserviceapp.clickOnCancelButton()
-     await scheduleserviceapp.selectAppCancellationReason(jsonData.reaAppointments[index].rea_cancelled_reason)
+     await scheduleserviceapp.selectAppCancellationReason(jsonData.bookNewAppointments[index].rea_cancelled_reason)
      await scheduleserviceapp.clickOnSaveCancelledAppButton()
      await expect(page.getByText('Patient appointment cancelled successfully')).toHaveText('Patient appointment cancelled successfully')
 
