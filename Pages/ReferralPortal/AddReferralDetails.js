@@ -50,7 +50,7 @@ class AddReferralDetails
        this.dropdownService=page.getByTestId('service').getByLabel('Open')
        this.dropdownClinicType=page.getByTestId('clinicType').getByLabel('Open')
        this.dropdownClinicLocation=page.getByTestId('clinicLocation').getByLabel('Open')
-       this.txtboxDateOfReferral=page.getByLabel('Date of Referral *')
+       this.txtboxDateOfReferral=page.getByTestId('Date of Referral').getByPlaceholder('dd/mm/yyyy')
        this.txtboxTimeOfReferral=page.getByPlaceholder('hh:mm')
        this.dropdownConsultant=page.getByTestId('consultant').getByLabel('Open')
        this.dropdownClinicalPriority=page.getByTestId('clinicalPriority').getByLabel('Open')
@@ -223,10 +223,16 @@ class AddReferralDetails
         await this.txtDateOfDiagnosis.type(date)
     }
 
-    async selectPreviousCondition()
+    async selectPreviousCondition(cond)
     {
+        let answer;
+        if(cond === 1){
+            answer = 'Yes'
+        }
+        else answer = 'No'
+        
         await this.dropdownPreviousCondition.click()
-        await this.page.getByRole('option', { name: 'No' }).click()
+        await this.page.getByRole('option', { name: answer }).click()
     }
 
     async selectCheckboxPrivateRecord()
@@ -284,7 +290,7 @@ class AddReferralDetails
     async selectSite(site)
     {
         await this.dropdownSite.click()
-        await this.page.getByRole('option', { name: site, exact: true })
+        await this.page.getByRole('option', { name: site, exact: true }).click()
     }
     async selectPrescribedBy(prescribedBy)
     {
@@ -502,9 +508,9 @@ class AddReferralDetails
     async clickOnPatientScansSection(){
         await this.expandPatientScans.click()
     }
-    async selectPatientScan(){
-        await this.searchPatientScans.type('Heel DEXA scan')
-        await this.page.getByRole('option', { name: 'Heel DEXA scan' }).click()
+    async selectPatientScan(scan){
+        await this.searchPatientScans.type(scan)
+        await this.page.getByRole('option', { name: scan }).click()
     }
     async selectCategory(){
         await this.txtCategory.click()
@@ -539,9 +545,9 @@ class AddReferralDetails
     async clickOnProceduresSection(){
         await this.expandProcedures.click()
     }
-    async selectProcedure(){
-        await this.searchProcedures.type('Lymphadenectomy')
-        await this.page.getByRole('option', { name: 'Lymphadenectomy' }).click()
+    async selectProcedure(procedure){
+        await this.searchProcedures.type(procedure)
+        await this.page.getByRole('option', { name: procedure }).click()
     }
     async enterDateOfProcedure(date){
         await this.txtDateOfProcedure.type(date)
@@ -555,7 +561,7 @@ class AddReferralDetails
     }
     async selectLinkToClinicLocation(location){
         await  this.dropdownLinkToClinicLocation.click()
-        await  this.page.getByRole('option', { name: location })
+        await  this.page.getByRole('option', { name: location }).click()
     }
     async enterLinkToClinicDiagnosis(diagnosis){
         await  this.txtLinkToClinicDiagnosis.type(diagnosis)
@@ -587,7 +593,7 @@ class AddReferralDetails
     }
     async enterRefDocNotes(notes)
     {
-        await this.txtRefDocNotes.type(notes)
+        await this.txtRefDocNotes.fill(notes)
     }
     async clickOnAddAdditionalDocuments()
     {
@@ -669,7 +675,7 @@ class AddReferralDetails
     async selectService(service)
     {
         await this.dropdownService.click()
-        await this.page.getByRole('option', { name: service }).click()
+        await this.page.getByRole('option', { name: service, exact: true }).click()
     }
     async clickOnServiceReferralAccordion()
     {
